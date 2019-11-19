@@ -1,0 +1,22 @@
+{
+  "name": "lambda-cloud-cli-web",
+  "version": "1.0.0",
+  "description": "Lambda Cloud - Web Client",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lambda-cloud/cli-web.git"
+  },
+  "keywords": [
+    "lambda-cloud"
+  ],
+  "author": "Alan Badillo Salas",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/lambda-cloud/cli-web/issues"
+  },
+  "homepage": "https://github.com/lambda-cloud/cli-web#readme"
+}
