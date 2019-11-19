@@ -20,7 +20,7 @@
             const groupID = "team:lambda-cloud@test/mongo-cli";
             const nodeID = Math.random().toString(16).slice(2);
 
-            const node = await lambda(groupID, nodeID, "http://localhost:3000");
+            const node = await lambda(groupID, nodeID, "http://localhost:4000");
 
             const result_1 = await node.to("mongo-client", {
                 type: "mongo-cli",
