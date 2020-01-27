@@ -57,7 +57,7 @@ async function lambda(groupID, nodeID, masterURI = "https://badillosoft.com") {
                     },
                     code: JSON.stringify(code),
                 }, { nodeID: nodeTo }, output => {
-                    console.log("peer success", output);
+                    // console.log("peer success", output);
                     resolve(output);
                 });
             });
