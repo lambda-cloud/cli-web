@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lambda Cloud - Cli Web</title>
+
+</head>
+
+<body>
+
+    <script src="lambda.js"></script>
+
+    <script>
+        (async () => {
+            
+            const groupID = "team:lambda-cloud@test/mongo-cli";
+            const nodeID = Math.random().toString(16).slice(2);
+
+            const node = await lambda(groupID, nodeID, "https://badillosoft.com");
+
+            const result_1 = await node.to("mongo-client", {
+                type: "mongo-cli",
+                mode: "query",
+                database: "lambda-cloud",
+                collection: "test",
+                query: {}
+            });
+
+            console.log(result_1);
+
+            // const result_2 = await node.to("mongo-client", {
+            //     type: "mongo-cli",
+            //     mode: "bulk",
+            //     database: "lambda-cloud",
+            //     collection: "test",
+            //     operations: [
+            //         {
+            //             insertOne: {
+            //                 message: `Hello ${uuid().slice(0, 8)}`
+            //             }
+            //         }
+            //     ]
+            // });
+
+            // console.log(result_2);
+
+            // const result_3 = await node.to("mongo-client", {
+            //     type: "mongo-cli",
+            //     mode: "aggregate",
+            //     database: "lambda-cloud",
+            //     collection: "test",
+            //     operations: [
+            //         {
+            //             $project: {
+            //                 _id: 0,
+            //                 message: 1
+            //             }
+            //         }
+            //     ]
+            // });
+
+            // console.log(result_3);
+        })();
+    </script>
+
+</body>
+
+</html>
