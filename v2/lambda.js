@@ -29,10 +29,10 @@ async function lambda(groupID, nodeID, masterURI = "https://badillosoft.com") {
             this.socketMaster = io(masterURI);
             await new Promise(resolve => {
                 this.socketMaster.on("connect", () => {
-                    console.log(`Connected to ${masterURI}`);
+                    console.log(`Lambda Cloud - Mini v1.0 (connect ${masterURI})`);
                     this.connectedMaster = true;
                     this.socketMaster.emit("node", this.node, async node => {
-                        console.log("Signed successfully:", node.groupToken.slice(24));
+                        console.log(`Lambda Cloud - Mini v1.0 (signed ${node.groupToken.slice(24)})`);
                         this.node = node;
                         this.registeredMaster = true;
                         resolve();
@@ -40,18 +40,13 @@ async function lambda(groupID, nodeID, masterURI = "https://badillosoft.com") {
                 });
                 this.socketMaster.on("disconnect", () => {
                     this.connectedMaster = false;
-                    console.warn("disconnected master");
+                    console.log("Lambda Cloud - Mini v1.0 (done)");
                 });
                 this.socketMaster.on("reset", async () => {
-                    console.warn("reset house");
+                    console.warn("Lambda Cloud - Mini v1.0 (reset)");
                     await this.connectHouse();
                 });
             });
-        },
-        async close() {
-            if (this.socketMaster) {
-                this.socketMaster.disconnect();
-            }
         },
         async to(nodeTo, code) {
             return await new Promise(resolve => {
