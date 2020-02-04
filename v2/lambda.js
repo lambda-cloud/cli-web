@@ -48,6 +48,11 @@ async function lambda(groupID, nodeID, masterURI = "https://badillosoft.com") {
                 });
             });
         },
+        async close() {
+            if (this.socketMaster) {
+                this.socketMaster.disconnect();
+            }
+        },
         async to(nodeTo, code) {
             return await new Promise(resolve => {
                 this.socketMaster.emit("peer", {
